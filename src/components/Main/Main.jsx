@@ -31,6 +31,11 @@ const Real = () => {
               <img src={assets.code_icon} alt="" />
             </div>
           </div>
+          <div className="main-bottom">
+            <div className="search-box">
+              
+            </div>
+          </div>
         </div>
     </div>
   )
