@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Main.css'
 import { assets } from '../../assets/assets'
-const Real = () => {
+import { Context } from '../../context/Contex'
+const Main = () => {
+
+  const {onSent , recentPrompt , showResult, loading, resultData, setInput, input}= useContext(Context)
   return (
     <div className='main'>
         <div className="nav">
@@ -33,11 +36,11 @@ const Real = () => {
           </div>
           <div className="main-bottom">
             <div className="search-box">
-              <input type="text" placeholder='Enter a prompt here'/>
+              <input onChange={(e)=>setInput(e.target.value) } value={input} type="text" placeholder='Enter a prompt here'/>
               <div>
                 <img src={assets.gallery_icon} alt="" />
                 <img src={assets.mic_icon} alt="" />
-                <img src={assets.send_icon} alt="" />
+                <img onClick={()=>onSent()} src={assets.send_icon} alt="" />
               </div>
             </div>
             
@@ -47,4 +50,4 @@ const Real = () => {
   )
 }
 
-export default Real
+export default Main
